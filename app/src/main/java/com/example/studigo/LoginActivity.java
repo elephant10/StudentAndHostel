@@ -96,42 +96,42 @@ public class LoginActivity extends AppCompatActivity {
         femaleRadio = findViewById(R.id.radioFemale);
 
         editTextPhone = findViewById(R.id.editTextPhone);
-        editTextEmail = findViewById(R.id.editTextPhone) ;
+        editTextEmail = findViewById(R.id.editTextEmail);
 
-        Spinner religionSpinner;
-        SeekBar seekBarReligion;
+        religionSpinner = findViewById(R.id.religionSpinner);
+        seekBarReligion = findViewById(R.id.seekBarReligion);
 
-        EditText countryEditText;
-        SeekBar seekBarCountry;
+        countryEditText = findViewById(R.id.countryEditText);
+        seekBarCountry = findViewById(R.id.seekBarCountry);
 
-        EditText regionEditText;
-        SeekBar seekBarRegion;
+        regionEditText = findViewById(R.id.regionEditText);
+        seekBarRegion = findViewById(R.id.seekBarRegion);
 
-        EditText townEditText;
-        SeekBar seekBarTown;
+        townEditText = findViewById(R.id.townEditText);
+        seekBarTown = findViewById(R.id.seekBarTown);
 
-        EditText ethnicEditText;
-        SeekBar seekBarEthnic;
+        ethnicEditText = findViewById(R.id.ethnicEditText);
+        seekBarEthnic = findViewById(R.id.seekBarEthnic);
 
-        EditText languageEditText;
-        SeekBar seekBarLanguage;
+        languageEditText = findViewById(R.id.languageEditText);
+        seekBarLanguage = findViewById(R.id.seekBarLanguage);
 
-        CheckBox alcoholBox;
-        SeekBar seekBarAlcohol;
+        alcoholBox = findViewById(R.id.alcoholBox);
+        seekBarAlcohol = findViewById(R.id.seekBarAlcohol);
 
-        CheckBox burnBox;
-        SeekBar seekBarBurn;
+        burnBox = findViewById(R.id.burnBox);
+        seekBarBurn = findViewById(R.id.seekBarBurn);
 
-        CheckBox loudBox;
-        SeekBar seekBarLoud;
+        loudBox = findViewById(R.id.loudBox);
+        seekBarLoud = findViewById(R.id.seekBarLoud);
 
-        RadioButton wakeEarlyRadio;
-        RadioButton wakeLateRadio;
+        wakeEarlyRadio = findViewById(R.id.wakeEarlyRadio);
+        wakeLateRadio = findViewById(R.id.wakeLateRadio);
 
-        RadioButton sleepEarlyRadio;
-        RadioButton sleepLateRadio;
+        sleepEarlyRadio = findViewById(R.id.sleepEarlyRadio);
+        sleepLateRadio = findViewById(R.id.sleepLateRadio);
 
-        SeekBar seekBarSleep;
+        seekBarSleep = findViewById(R.id.seekBarSleep);
 
         if (hasRegistered) {
             int studentId = sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_ID, 0);
