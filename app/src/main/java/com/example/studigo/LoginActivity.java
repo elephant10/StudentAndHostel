@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.ArraySet;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -49,8 +50,25 @@ public class LoginActivity extends AppCompatActivity {
     EditText ethnicEditText;
     SeekBar seekBarEthnic;
 
+    EditText languageEditText;
+    SeekBar seekBarLanguage;
 
+    CheckBox alcoholBox;
+    SeekBar seekBarAlcohol;
 
+    CheckBox burnBox;
+    SeekBar seekBarBurn;
+
+    CheckBox loudBox;
+    SeekBar seekBarLoud;
+
+    RadioButton wakeEarlyRadio;
+    RadioButton wakeLateRadio;
+
+    RadioButton sleepEarlyRadio;
+    RadioButton sleepLateRadio;
+
+    SeekBar seekBarSleep;
 
     volatile Vibrator vibrator;
     boolean hasRegistered = false;
@@ -76,6 +94,45 @@ public class LoginActivity extends AppCompatActivity {
         sexGroup = findViewById(R.id.sexGroup);
         maleRadio = findViewById(R.id.radioMale);
         femaleRadio = findViewById(R.id.radioFemale);
+
+        editTextPhone = findViewById(R.id.editTextPhone);
+        editTextEmail = findViewById(R.id.editTextPhone) ;
+
+        Spinner religionSpinner;
+        SeekBar seekBarReligion;
+
+        EditText countryEditText;
+        SeekBar seekBarCountry;
+
+        EditText regionEditText;
+        SeekBar seekBarRegion;
+
+        EditText townEditText;
+        SeekBar seekBarTown;
+
+        EditText ethnicEditText;
+        SeekBar seekBarEthnic;
+
+        EditText languageEditText;
+        SeekBar seekBarLanguage;
+
+        CheckBox alcoholBox;
+        SeekBar seekBarAlcohol;
+
+        CheckBox burnBox;
+        SeekBar seekBarBurn;
+
+        CheckBox loudBox;
+        SeekBar seekBarLoud;
+
+        RadioButton wakeEarlyRadio;
+        RadioButton wakeLateRadio;
+
+        RadioButton sleepEarlyRadio;
+        RadioButton sleepLateRadio;
+
+        SeekBar seekBarSleep;
+
         if (hasRegistered) {
             int studentId = sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_ID, 0);
             String name = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_NAME, "");
