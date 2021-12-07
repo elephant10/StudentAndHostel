@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.ArraySet;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
@@ -23,8 +23,7 @@ import android.os.Vibrator;
 import com.example.studigo.model.Student;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -138,44 +137,59 @@ public class LoginActivity extends AppCompatActivity {
             String name = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_NAME, "");
             String surname = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_SURNAME, "");
             boolean sex = sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_SEX, true);
-             String phone = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_PHONE, "");
-             String email= sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_EMAIL, "");;
-             Pair<String, Integer> religion= new Pair<>(
-                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_RELIGION, ""),
-                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_RELIGION_IMPORTANCE, 50));
-             Pair<String, Integer> country= new Pair<>(
-                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_COUNTRY, "Ukraine"),
-                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_COUNTRY_IMPORTANCE, 50));
-             Pair<String, Integer> region = new Pair<>(
+            String phone = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_PHONE, "");
+            String email = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_EMAIL, "");
+            ;
+            Pair<String, Integer> religion = new Pair<>(
+                    sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_RELIGION, ""),
+                    sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_RELIGION_IMPORTANCE, 50));
+            Pair<String, Integer> country = new Pair<>(
+                    sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_COUNTRY, "Ukraine"),
+                    sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_COUNTRY_IMPORTANCE, 50));
+            Pair<String, Integer> region = new Pair<>(
                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_REGION, ""),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_REGION_IMPORTANCE, 50));
-             Pair<String, Integer> town = new Pair<>(
-                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_TOWN, ""),
-                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_TOWN_IMPORTANCE, 50));
-             Pair<String, Integer> ethnic = new Pair<>(
-                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_ETHNIC, ""),
-                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_ETHNIC_IMPORTANCE, 50));
-             Pair<String, Integer> language = new Pair<>(
+            Pair<String, Integer> town = new Pair<>(
+                    sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_TOWN, ""),
+                    sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_TOWN_IMPORTANCE, 50));
+            Pair<String, Integer> ethnic = new Pair<>(
+                    sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_ETHNIC, ""),
+                    sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_ETHNIC_IMPORTANCE, 50));
+            Pair<String, Integer> language = new Pair<>(
                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_LANGUAGE, ""),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_LANGUAGE_IMPORTANCE, 50));
-             Pair<Boolean, Integer> alcohol = new Pair<>(
+            Pair<Boolean, Integer> alcohol = new Pair<>(
                     sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_ALCOHOL, false),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_ALCOHOL_IMPORTANCE, 50));
-             Pair<Boolean, Integer> burn = new Pair<>(
-                     sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_BURN, false),
-                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_BURN_IMPORTANCE, 50));
-             Pair<Boolean, Integer> loud = new Pair<>(
-                     sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_LOUD, false),
-                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_LOUD_IMPORTANCE, 50));
-             Pair<Boolean, Integer> wakeEarly = new Pair<>(
-                     sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_WAKE_EARLY, false),
-                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_SLEEP_IMPORTANCE, 50));
-             Pair<Boolean, Integer> sleepEarly = new Pair<>(
-                     sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_SLEEP_EARLY, false),
-                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_SLEEP_IMPORTANCE, 50));
+            Pair<Boolean, Integer> burn = new Pair<>(
+                    sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_BURN, false),
+                    sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_BURN_IMPORTANCE, 50));
+            Pair<Boolean, Integer> loud = new Pair<>(
+                    sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_LOUD, false),
+                    sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_LOUD_IMPORTANCE, 50));
+            Pair<Boolean, Integer> wakeEarly = new Pair<>(
+                    sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_WAKE_EARLY, false),
+                    sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_SLEEP_IMPORTANCE, 50));
+            Pair<Boolean, Integer> sleepEarly = new Pair<>(
+                    sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_SLEEP_EARLY, false),
+                    sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_SLEEP_IMPORTANCE, 50));
 //            ArrayList<String> habits = new ArrayList<>(sharedPreferences.getStringSet(SHARED_PREFERENCES_STUDENT_HABITS, new ArraySet<>()));
 //            ArrayList<String> preferences = new ArrayList<>(sharedPreferences.getStringSet(SHARED_PREFERENCES_STUDENT_PREFERENCES, new ArraySet<>()));
             student = new Student(name, surname, sex, studentId/*, habits, preferences*/);
+            student.phone = phone;
+            student.email = email;
+            student.religion = religion;
+            student.country = country;
+            student.region = region;
+            student.town = town;
+            student.ethnic = ethnic;
+            student.language = language;
+            student.alcohol = alcohol;
+            student.burn = burn;
+            student.loud = loud;
+            student.wakeEarly = wakeEarly;
+            student.sleepEarly = sleepEarly;
+
 
             surnameview.setText(surname);
             nameview.setText(name);
@@ -184,7 +198,34 @@ public class LoginActivity extends AppCompatActivity {
             } else {
                 femaleRadio.toggle();
             }
+            editTextPhone.setText(phone);
+            editTextEmail.setText(email);
 
+            ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.religions)));
+            religionSpinner.setSelection(arrayList.indexOf(religion.first));
+            seekBarReligion.setProgress(religion.second);
+            townEditText.setText(town.first);
+            seekBarTown.setProgress(town.second);
+            ethnicEditText.setText(ethnic.first);
+            seekBarEthnic.setProgress(ethnic.second);
+            languageEditText.setText(language.first);
+            seekBarLanguage.setProgress(language.second);
+            alcoholBox.setChecked(alcohol.first);
+            seekBarAlcohol.setProgress(alcohol.second);
+            burnBox.setChecked(burn.first);
+            seekBarBurn.setProgress(burn.second);
+            loudBox.setChecked(loud.first);
+            seekBarLoud.setProgress(loud.second);
+            if (wakeEarly.first) {
+                wakeEarlyRadio.toggle();
+            } else {
+                wakeLateRadio.toggle();
+            }
+            if (sleepEarly.first) {
+                sleepEarlyRadio.toggle();
+            } else {
+                sleepLateRadio.toggle();
+            }
 
         }
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -194,8 +235,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (nameview.getText().toString().equals("") || surnameview.getText().toString().equals("")
-                || (!maleRadio.isChecked() && !femaleRadio.isChecked())) {
-            Toast.makeText(this, "Введіть усі поля", Toast.LENGTH_SHORT).show();
+                || (!maleRadio.isChecked() && !femaleRadio.isChecked()) || editTextPhone.getText().toString().equals("")
+                || editTextEmail.getText().toString().equals("")) {
+            Toast.makeText(this, "Введіть основні поля", Toast.LENGTH_SHORT).show();
         } else {
             super.onBackPressed();
         }
