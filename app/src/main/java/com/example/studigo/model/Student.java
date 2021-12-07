@@ -1,6 +1,7 @@
 package com.example.studigo.model;
 
 import android.util.Log;
+import android.util.Pair;
 
 import com.example.studigo.Constatns;
 import com.google.firebase.database.DatabaseReference;
@@ -16,11 +17,24 @@ public class Student {
     public String name;
     public String surname;
     public boolean sex;
+    public String phone;
+    public String email;
+    public Pair<String, Integer> religion;
+    public Pair<String, Integer> country;
+    public Pair<String, Integer> region;
+    public Pair<String, Integer> town;
+    public Pair<String, Integer> ethnic;
+    public Pair<String, Integer> language;
+    public Pair<Boolean, Integer> alcohol;
+    public Pair<Boolean, Integer> burn;
+    public Pair<Boolean, Integer> loud;
+    public Pair<Boolean, Integer> wakeEarly;
+    public Pair<Boolean, Integer> sleepEarly;
 
 
     public int studentId;
-   /* public ArrayList<String> habits;
-    public ArrayList<String> preferences;*/
+    /* public ArrayList<String> habits;
+     public ArrayList<String> preferences;*/
     public int roomId;
 
     // register new student
@@ -50,6 +64,7 @@ public class Student {
         this.roomId = roomId;
         this.sex = sex;
     }
+
     //load existing student with no room
     public Student(String name, String surname, boolean sex, int studentId/*, ArrayList<String> habits, ArrayList<String> preferences*/) {
         this.name = name;

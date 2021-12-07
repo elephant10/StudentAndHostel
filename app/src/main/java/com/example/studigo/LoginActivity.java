@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.ArraySet;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -130,7 +131,6 @@ public class LoginActivity extends AppCompatActivity {
 
         sleepEarlyRadio = findViewById(R.id.sleepEarlyRadio);
         sleepLateRadio = findViewById(R.id.sleepLateRadio);
-
         seekBarSleep = findViewById(R.id.seekBarSleep);
 
         if (hasRegistered) {
@@ -138,6 +138,41 @@ public class LoginActivity extends AppCompatActivity {
             String name = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_NAME, "");
             String surname = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_SURNAME, "");
             boolean sex = sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_SEX, true);
+             String phone = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_PHONE, "");
+             String email= sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_EMAIL, "");;
+             Pair<String, Integer> religion= new Pair<>(
+                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_RELIGION, ""),
+                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_RELIGION_IMPORTANCE, 50));
+             Pair<String, Integer> country= new Pair<>(
+                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_COUNTRY, "Ukraine"),
+                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_COUNTRY_IMPORTANCE, 50));
+             Pair<String, Integer> region = new Pair<>(
+                    sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_REGION, ""),
+                    sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_REGION_IMPORTANCE, 50));
+             Pair<String, Integer> town = new Pair<>(
+                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_TOWN, ""),
+                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_TOWN_IMPORTANCE, 50));
+             Pair<String, Integer> ethnic = new Pair<>(
+                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_ETHNIC, ""),
+                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_ETHNIC_IMPORTANCE, 50));
+             Pair<String, Integer> language = new Pair<>(
+                    sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_LANGUAGE, ""),
+                    sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_LANGUAGE_IMPORTANCE, 50));
+             Pair<Boolean, Integer> alcohol = new Pair<>(
+                    sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_ALCOHOL, false),
+                    sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_ALCOHOL_IMPORTANCE, 50));
+             Pair<Boolean, Integer> burn = new Pair<>(
+                     sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_BURN, false),
+                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_BURN_IMPORTANCE, 50));
+             Pair<Boolean, Integer> loud = new Pair<>(
+                     sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_LOUD, false),
+                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_LOUD_IMPORTANCE, 50));
+             Pair<Boolean, Integer> wakeEarly = new Pair<>(
+                     sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_WAKE_EARLY, false),
+                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_SLEEP_IMPORTANCE, 50));
+             Pair<Boolean, Integer> sleepEarly = new Pair<>(
+                     sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_SLEEP_EARLY, false),
+                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_SLEEP_IMPORTANCE, 50));
 //            ArrayList<String> habits = new ArrayList<>(sharedPreferences.getStringSet(SHARED_PREFERENCES_STUDENT_HABITS, new ArraySet<>()));
 //            ArrayList<String> preferences = new ArrayList<>(sharedPreferences.getStringSet(SHARED_PREFERENCES_STUDENT_PREFERENCES, new ArraySet<>()));
             student = new Student(name, surname, sex, studentId/*, habits, preferences*/);
