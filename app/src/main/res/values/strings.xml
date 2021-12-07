@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Studigo</string>
+    <string name="registrationOfUsertext"><u>Реєстрація користувача</u></string>
+
+    <string-array name="religions">
+        <item> <font size = "18">Православна</font></item>
+        <item> <font size = "18">Католицька</font></item>
+        <item> <font size = "18">Греко-католицька</font></item>
+        <item> <font size = "18">інша християнська</font></item>
+        <item> <font size = "18">Іудейська</font></item>
+        <item> <font size = "18">Суннізм</font></item>
+        <item> <font size = "18">Шиїзм</font></item>
+        <item> <font size = "18">інша мусульманська</font></item>
+        <item> <font size = "18">Буддизм</font></item>
+        <item> <font size = "18">Синтоїзм</font></item>
+        <item> <font size = "18">Аттеїзм (відсутність віри)</font></item>
+        <item> <font size = "18">агностицизм</font></item>
+        <item> <font size = "18">не бажаю вказувати</font></item>
+    </string-array>
+
+</resources>
