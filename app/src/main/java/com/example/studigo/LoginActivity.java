@@ -138,9 +138,9 @@ public class LoginActivity extends AppCompatActivity {
             String name = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_NAME, "");
             String surname = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_SURNAME, "");
             boolean sex = sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_SEX, true);
-            ArrayList<String> habits = new ArrayList<>(sharedPreferences.getStringSet(SHARED_PREFERENCES_STUDENT_HABITS, new ArraySet<>()));
-            ArrayList<String> preferences = new ArrayList<>(sharedPreferences.getStringSet(SHARED_PREFERENCES_STUDENT_PREFERENCES, new ArraySet<>()));
-            student = new Student(name, surname, sex, studentId, habits, preferences);
+//            ArrayList<String> habits = new ArrayList<>(sharedPreferences.getStringSet(SHARED_PREFERENCES_STUDENT_HABITS, new ArraySet<>()));
+//            ArrayList<String> preferences = new ArrayList<>(sharedPreferences.getStringSet(SHARED_PREFERENCES_STUDENT_PREFERENCES, new ArraySet<>()));
+            student = new Student(name, surname, sex, studentId/*, habits, preferences*/);
 
             surnameview.setText(surname);
             nameview.setText(name);
@@ -195,8 +195,8 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString(SHARED_PREFERENCES_STUDENT_NAME, student.name);
                 editor.putString(SHARED_PREFERENCES_STUDENT_SURNAME, student.surname);
                 editor.putBoolean(SHARED_PREFERENCES_STUDENT_SEX, student.sex);
-                editor.putStringSet(SHARED_PREFERENCES_STUDENT_HABITS, new HashSet<>(student.habits));
-                editor.putStringSet(SHARED_PREFERENCES_STUDENT_PREFERENCES, new HashSet<>(student.preferences));
+                /*editor.putStringSet(SHARED_PREFERENCES_STUDENT_HABITS, new HashSet<>(student.habits));
+                editor.putStringSet(SHARED_PREFERENCES_STUDENT_PREFERENCES, new HashSet<>(student.preferences));*/
                 editor.putBoolean(SHARED_PREFERENCES_HAS_REGISTERED, true);
                 editor.apply();
                 deviceStudent = student;

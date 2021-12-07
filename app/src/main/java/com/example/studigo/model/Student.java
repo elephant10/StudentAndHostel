@@ -19,8 +19,8 @@ public class Student {
 
 
     public int studentId;
-    public ArrayList<String> habits;
-    public ArrayList<String> preferences;
+   /* public ArrayList<String> habits;
+    public ArrayList<String> preferences;*/
     public int roomId;
 
     // register new student
@@ -31,8 +31,8 @@ public class Student {
     public Student(String name, String surname, boolean sex) {
         this.name = name;
         this.surname = surname;
-        habits = new ArrayList<>();
-        preferences = new ArrayList<>();
+        /*habits = new ArrayList<>();
+        preferences = new ArrayList<>();*/
         studentId = Constatns.maxStudentID + 1;
         System.out.println("studentId = " + studentId);
         Constatns.maxStudentID += 1;
@@ -41,27 +41,27 @@ public class Student {
     }
 
     //load existing student
-    public Student(String name, String surname, boolean sex, int studentId, int roomId, ArrayList<String> habits, ArrayList<String> preferences) {
+    public Student(String name, String surname, boolean sex, int studentId, int roomId/*, ArrayList<String> habits, ArrayList<String> preferences*/) {
         this.name = name;
         this.surname = surname;
         this.studentId = studentId;
-        this.habits = habits;
-        this.preferences = preferences;
+       /* this.habits = habits;
+        this.preferences = preferences;*/
         this.roomId = roomId;
         this.sex = sex;
     }
     //load existing student with no room
-    public Student(String name, String surname, boolean sex, int studentId, ArrayList<String> habits, ArrayList<String> preferences) {
+    public Student(String name, String surname, boolean sex, int studentId/*, ArrayList<String> habits, ArrayList<String> preferences*/) {
         this.name = name;
         this.surname = surname;
         this.studentId = studentId;
-        this.habits = habits;
-        this.preferences = preferences;
+       /* this.habits = habits;
+        this.preferences = preferences;*/
         this.sex = sex;
     }
 
 
-    public Student(String name, String surname, boolean sex, int roomId) {
+   /* public Student(String name, String surname, boolean sex, int roomId) {
         this.name = name;
         this.surname = surname;
         this.roomId = roomId;
@@ -72,7 +72,7 @@ public class Student {
         Constatns.maxStudentID += 1;
         FirebaseDatabase.getInstance().getReference().child("maxStudentID").setValue(Constatns.maxStudentID);
         this.sex = sex;
-    }
+    }*/
 
     public String getSurname() {
         return surname;
@@ -94,7 +94,7 @@ public class Student {
         return studentId;
     }
 
-    public ArrayList<String> getHabits() {
+    /*public ArrayList<String> getHabits() {
         return habits;
     }
 
@@ -117,7 +117,7 @@ public class Student {
     public void addPreference(String preference) {
         habits.add(preference);
     }
-
+*/
     public int getRoomId() {
         return roomId;
     }
@@ -155,8 +155,8 @@ public class Student {
                 "\t surname=" + surname + "\n" +
                 "\t sex=" + (getSex() ? "чоловік" : "жінка") + "\n" +
                 "\t studentId=" + studentId + "\n" +
-                "\t habits=" + habits + "\n" +
-                "\t preferences=" + preferences + "\n" +
+                /*"\t habits=" + habits + "\n" +
+                "\t preferences=" + preferences + "\n" +*/
                 "\t roomId=" + roomId + "\n" +
                 "}\n";
     }

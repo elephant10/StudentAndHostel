@@ -66,8 +66,8 @@ public class Constatns {
     public static final String SHARED_PREFERENCES_STUDENT_SLEEP_IMPORTANCE = "STUDENT_SLEEP_IMPORTANCE ";
 
 
-    public static final String SHARED_PREFERENCES_STUDENT_HABITS = "STUDENT_HABITS";
+   /* public static final String SHARED_PREFERENCES_STUDENT_HABITS = "STUDENT_HABITS";
     public static final String SHARED_PREFERENCES_STUDENT_PREFERENCES = "STUDENT_PREFERENCES";
-
+*/
 
 }

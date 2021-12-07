@@ -2,10 +2,10 @@ package com.example.studigo;
 
 import static com.example.studigo.Constatns.ROOM_REFERENCE_KEY;
 import static com.example.studigo.Constatns.SHARED_PREFERENCES_HAS_REGISTERED;
-import static com.example.studigo.Constatns.SHARED_PREFERENCES_STUDENT_HABITS;
+//import static com.example.studigo.Constatns.SHARED_PREFERENCES_STUDENT_HABITS;
 import static com.example.studigo.Constatns.SHARED_PREFERENCES_STUDENT_ID;
 import static com.example.studigo.Constatns.SHARED_PREFERENCES_STUDENT_NAME;
-import static com.example.studigo.Constatns.SHARED_PREFERENCES_STUDENT_PREFERENCES;
+//import static com.example.studigo.Constatns.SHARED_PREFERENCES_STUDENT_PREFERENCES;
 import static com.example.studigo.Constatns.SHARED_PREFERENCES_STUDENT_SEX;
 import static com.example.studigo.Constatns.SHARED_PREFERENCES_STUDENT_SURNAME;
 import static com.example.studigo.Constatns.SHARED_PREFERENCES_THIS_STUDENT;
@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
             String name = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_NAME, "");
             String surname = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_SURNAME, "");
             boolean sex = sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_SEX, true);
-            ArrayList<String> habits = new ArrayList<>(sharedPreferences.getStringSet(SHARED_PREFERENCES_STUDENT_HABITS, new android.util.ArraySet<>()));
-            ArrayList<String> preferences = new ArrayList<>(sharedPreferences.getStringSet(SHARED_PREFERENCES_STUDENT_PREFERENCES, new ArraySet<>()));
-            deviceStudent = new Student(name, surname, sex, studentId, habits, preferences);
+//            ArrayList<String> habits = new ArrayList<>(sharedPreferences.getStringSet(SHARED_PREFERENCES_STUDENT_HABITS, new android.util.ArraySet<>()));
+//            ArrayList<String> preferences = new ArrayList<>(sharedPreferences.getStringSet(SHARED_PREFERENCES_STUDENT_PREFERENCES, new ArraySet<>()));
+            deviceStudent = new Student(name, surname, sex, studentId/*, habits, preferences*/);
         }
 
 
