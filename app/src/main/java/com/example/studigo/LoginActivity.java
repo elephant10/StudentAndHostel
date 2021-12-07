@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.os.Vibrator;
 
@@ -29,6 +31,27 @@ public class LoginActivity extends AppCompatActivity {
     Button registrationButton;
     RadioGroup sexGroup;
     RadioButton maleRadio, femaleRadio;
+    EditText editTextPhone;
+    EditText editTextEmail;
+
+    Spinner religionSpinner;
+    SeekBar seekBarReligion;
+
+    EditText countryEditText;
+    SeekBar seekBarCountry;
+
+    EditText regionEditText;
+    SeekBar seekBarRegion;
+
+    EditText townEditText;
+    SeekBar seekBarTown;
+
+    EditText ethnicEditText;
+    SeekBar seekBarEthnic;
+
+
+
+
     volatile Vibrator vibrator;
     boolean hasRegistered = false;
     SharedPreferences sharedPreferences;
