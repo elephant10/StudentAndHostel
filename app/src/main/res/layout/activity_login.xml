@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.01" />
 
     <Button
         android:id="@+id/registrationButton"
@@ -30,11 +30,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="0.99" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintBottom_toTopOf="@+id/registrationButton"
         app:layout_constraintTop_toBottomOf="@+id/descriptionView"
         app:layout_constraintVertical_bias="1.0"
@@ -85,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingRight="20dp"
-                    android:text="ваша стать:"
+                    android:text="Ваша стать:"
                     android:textSize="20sp" />
 
                 <RadioButton
@@ -129,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingTop="40dp"
-                android:text="ваша ідентифікація"
+                android:text="Ваша ідентифікація"
                 android:textSize="30sp" />
 
             <LinearLayout
@@ -150,7 +152,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="ваша віра:"
+                        android:text="Ваша віра:"
                         android:textSize="20sp" />
 
                     <Spinner
@@ -176,6 +178,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
+                        android:onClick="onImportanceClick"
                         android:text="важливість" />
 
                     <TextView
@@ -245,6 +248,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:onClick="onImportanceClick"
 
                         android:gravity="center"
                         android:text="важливість" />
@@ -318,6 +322,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
+                        android:onClick="onImportanceClick"
+
                         android:text="важливість" />
 
                     <TextView
@@ -362,7 +368,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="місто(село):"
+                        android:text="Місто(село):"
                         android:textSize="20sp" />
 
                     <EditText
@@ -389,6 +395,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
+                        android:onClick="onImportanceClick"
+
                         android:text="важливість" />
 
                     <TextView
@@ -433,7 +441,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="етнічнна \n група"
+                        android:text="Етнічнна \n група"
                         android:textSize="20sp" />
 
                     <EditText
@@ -460,6 +468,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
+                        android:onClick="onImportanceClick"
+
                         android:text="важливість" />
 
                     <TextView
@@ -504,7 +514,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="мова"
+                        android:text="Мова"
                         android:textSize="20sp" />
 
                     <EditText
@@ -530,6 +540,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
+                        android:onClick="onImportanceClick"
+
                         android:text="важливість" />
 
                     <TextView
@@ -563,7 +575,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingTop="40dp"
-                android:text="ваш стиль життя"
+                android:text="Ваш стиль життя"
                 android:textSize="30sp" />
 
             <LinearLayout
@@ -585,14 +597,18 @@
                           android:gravity="center"
                           android:text="мова"
                           android:textSize="20sp" />-->
-
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
                     <CheckBox
                         android:id="@+id/alcoholBox"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="споживаю алкогольні напої?" />
+                        android:layout_weight="3"
+                        android:gravity="left"
+                        android:textSize="20sp"
+                        android:text="споживаю алкогольні напої" />
 
                 </LinearLayout>
 
@@ -607,6 +623,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
+                        android:onClick="onImportanceClick"
+
                         android:text="важливість" />
 
                     <TextView
@@ -653,13 +671,17 @@
                           android:gravity="center"
                           android:text="мова"
                           android:textSize="20sp" />-->
-
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
                     <CheckBox
                         android:id="@+id/burnBox"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
+                        android:layout_weight="3"
+                        android:gravity="left"
+                        android:textSize="20sp"
                         android:text="Курю" />
 
                 </LinearLayout>
@@ -675,6 +697,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
+                        android:onClick="onImportanceClick"
+
                         android:text="важливість" />
 
                     <TextView
@@ -721,13 +745,17 @@
                           android:gravity="center"
                           android:text="мова"
                           android:textSize="20sp" />-->
-
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
                     <CheckBox
                         android:id="@+id/loudBox"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
+                        android:layout_weight="3"
+                        android:gravity="left"
+                        android:textSize="20sp"
                         android:text="гучно слухаю музику" />
 
                 </LinearLayout>
@@ -743,6 +771,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
+                        android:onClick="onImportanceClick"
+
                         android:text="важливість" />
 
                     <TextView
@@ -787,7 +817,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="режим сну"
+                        android:text="Режим сну"
                         android:textSize="20sp" />
 
                     <TableLayout
@@ -941,6 +971,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
+                        android:onClick="onImportanceClick"
+
                         android:text="важливість" />
 
                     <TextView

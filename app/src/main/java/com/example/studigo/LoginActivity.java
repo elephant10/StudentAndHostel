@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
@@ -17,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Vibrator;
 
@@ -27,6 +27,7 @@ import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity {
 
+    TextView descriptionView;
     EditText nameview;
     EditText surnameview;
     Button registrationButton;
@@ -230,6 +231,9 @@ public class LoginActivity extends AppCompatActivity {
         }
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
+        descriptionView = findViewById(R.id.descriptionView);
+        descriptionView.setText("Зміна інформації про Вас");
+        registrationButton.setText("Підтвердити зміни");
     }
 
     @Override
@@ -237,7 +241,7 @@ public class LoginActivity extends AppCompatActivity {
         if (nameview.getText().toString().equals("") || surnameview.getText().toString().equals("")
                 || (!maleRadio.isChecked() && !femaleRadio.isChecked()) || editTextPhone.getText().toString().equals("")
                 || editTextEmail.getText().toString().equals("")) {
-            Toast.makeText(this, "Введіть основні поля", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "заповніть базову інформацію", Toast.LENGTH_SHORT).show();
         } else {
             super.onBackPressed();
         }
@@ -351,16 +355,20 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putBoolean(SHARED_PREFERENCES_HAS_REGISTERED, true);
                 editor.apply();
                 deviceStudent = student;
-                Toast.makeText(LoginActivity.this, "користувача додано", Toast.LENGTH_SHORT).show();
+                if (hasRegistered){
+                    Toast.makeText(LoginActivity.this, "інформація змінена", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginActivity.this, "користувача додано", Toast.LENGTH_SHORT).show();
+                }
                 onBackPressed();
             } else {
-                Toast.makeText(LoginActivity.this, "не залишайте пусті поля", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "заповніть базову інформацію", Toast.LENGTH_SHORT).show();
                 vibrator.vibrate(new long[]{50, 200, 50, 400}, 0);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         try {
-                            Thread.sleep(3000);
+                            Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -370,4 +378,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     };
+
+    public void onImportanceClick(View view) {
+        Toast.makeText(this, R.string.importanceToast, Toast.LENGTH_LONG).show();
+    }
 }
