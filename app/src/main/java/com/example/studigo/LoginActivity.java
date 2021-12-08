@@ -248,30 +248,104 @@ public class LoginActivity extends AppCompatActivity {
         public void onClick(View view) {
 
             if (!nameview.getText().toString().equals("") && !surnameview.getText().toString().equals("")
-                    && (maleRadio.isChecked() || femaleRadio.isChecked())) {
+                    && (maleRadio.isChecked() || femaleRadio.isChecked()) && !editTextPhone.getText().toString().equals("")
+                    && !editTextEmail.getText().toString().equals("")) {
 
                 if (hasRegistered) {
                     System.out.println("student = " + student);
                     student.name = nameview.getText().toString();
                     student.surname = surnameview.getText().toString();
                     student.sex = maleRadio.isChecked();
+                    {
+                        student.phone = editTextPhone.getText().toString();
+                        student.email = editTextEmail.getText().toString();
+                        student.religion = new Pair<>(religionSpinner.getSelectedItem().toString(), seekBarReligion.getProgress());
+
+                        student.country = new Pair<>(countryEditText.getText().toString(), seekBarCountry.getProgress());
+                        student.region = new Pair<>(regionEditText.getText().toString(), seekBarRegion.getProgress());
+                        student.town = new Pair<>(townEditText.getText().toString(), seekBarTown.getProgress());
+                        student.ethnic = new Pair<>(ethnicEditText.getText().toString(), seekBarEthnic.getProgress());
+                        student.language = new Pair<>(languageEditText.getText().toString(), seekBarLanguage.getProgress());
+                        student.alcohol = new Pair<>(alcoholBox.isChecked(), seekBarAlcohol.getProgress());
+                        student.burn = new Pair<>(burnBox.isChecked(), seekBarBurn.getProgress());
+                        student.loud = new Pair<>(loudBox.isChecked(), seekBarLoud.getProgress());
+                        student.sleepEarly = new Pair<>(sleepEarlyRadio.isChecked(), seekBarSleep.getProgress());
+                        student.wakeEarly = new Pair<>(wakeEarlyRadio.isChecked(), seekBarAlcohol.getProgress());
+
+                    }
+
                     studentRef.child(student.getStudentId() + "").setValue(student);
 //                    studentRef.push().setValue(student);
                 } else {
                     student = new Student(nameview.getText().toString(), surnameview.getText().toString(), maleRadio.isChecked());
+
+                    {
+                        student.phone = editTextPhone.getText().toString();
+                        student.email = editTextEmail.getText().toString();
+                        student.religion = new Pair<>(religionSpinner.getSelectedItem().toString(), seekBarReligion.getProgress());
+
+                        student.country = new Pair<>(countryEditText.getText().toString(), seekBarCountry.getProgress());
+                        student.region = new Pair<>(regionEditText.getText().toString(), seekBarRegion.getProgress());
+                        student.town = new Pair<>(townEditText.getText().toString(), seekBarTown.getProgress());
+                        student.ethnic = new Pair<>(ethnicEditText.getText().toString(), seekBarEthnic.getProgress());
+                        student.language = new Pair<>(languageEditText.getText().toString(), seekBarLanguage.getProgress());
+                        student.alcohol = new Pair<>(alcoholBox.isChecked(), seekBarAlcohol.getProgress());
+                        student.burn = new Pair<>(burnBox.isChecked(), seekBarBurn.getProgress());
+                        student.loud = new Pair<>(loudBox.isChecked(), seekBarLoud.getProgress());
+                        student.sleepEarly = new Pair<>(sleepEarlyRadio.isChecked(), seekBarSleep.getProgress());
+                        student.wakeEarly = new Pair<>(wakeEarlyRadio.isChecked(), seekBarAlcohol.getProgress());
+
+                    }
                     System.out.println("student = " + student);
                     while (studentRef == null) {
                         System.out.println("\"expr\" = " + "expr");
                     }
-                    studentRef.
-                            child(student.getStudentId() + "").
-                            setValue(student);
+                    studentRef.child(student.getStudentId() + "").setValue(student);
                 }
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt(SHARED_PREFERENCES_STUDENT_ID, student.studentId);
                 editor.putString(SHARED_PREFERENCES_STUDENT_NAME, student.name);
                 editor.putString(SHARED_PREFERENCES_STUDENT_SURNAME, student.surname);
                 editor.putBoolean(SHARED_PREFERENCES_STUDENT_SEX, student.sex);
+                editor.putString(SHARED_PREFERENCES_STUDENT_PHONE, student.phone);
+                editor.putString(SHARED_PREFERENCES_STUDENT_EMAIL, student.email);
+
+                editor.putString(SHARED_PREFERENCES_STUDENT_RELIGION, student.religion.first);
+                editor.putInt(SHARED_PREFERENCES_STUDENT_RELIGION_IMPORTANCE, student.religion.second);
+
+                editor.putString(SHARED_PREFERENCES_STUDENT_COUNTRY, student.country.first);
+                editor.putInt(SHARED_PREFERENCES_STUDENT_COUNTRY_IMPORTANCE, student.country.second);
+
+                editor.putString(SHARED_PREFERENCES_STUDENT_REGION, student.region.first);
+                editor.putInt(SHARED_PREFERENCES_STUDENT_REGION_IMPORTANCE, student.region.second);
+
+                editor.putString(SHARED_PREFERENCES_STUDENT_TOWN, student.town.first);
+                editor.putInt(SHARED_PREFERENCES_STUDENT_TOWN_IMPORTANCE, student.town.second);
+
+                editor.putString(SHARED_PREFERENCES_STUDENT_RELIGION, student.religion.first);
+                editor.putInt(SHARED_PREFERENCES_STUDENT_RELIGION_IMPORTANCE, student.religion.second);
+
+                editor.putString(SHARED_PREFERENCES_STUDENT_ETHNIC, student.ethnic.first);
+                editor.putInt(SHARED_PREFERENCES_STUDENT_ETHNIC_IMPORTANCE, student.ethnic.second);
+
+                editor.putString(SHARED_PREFERENCES_STUDENT_LANGUAGE, student.language.first);
+                editor.putInt(SHARED_PREFERENCES_STUDENT_LANGUAGE_IMPORTANCE, student.language.second);
+
+                editor.putBoolean(SHARED_PREFERENCES_STUDENT_ALCOHOL, student.alcohol.first);
+                editor.putInt(SHARED_PREFERENCES_STUDENT_ALCOHOL_IMPORTANCE, student.alcohol.second);
+
+                editor.putBoolean(SHARED_PREFERENCES_STUDENT_BURN, student.burn.first);
+                editor.putInt(SHARED_PREFERENCES_STUDENT_BURN_IMPORTANCE, student.burn.second);
+
+                editor.putBoolean(SHARED_PREFERENCES_STUDENT_LOUD, student.loud.first);
+                editor.putInt(SHARED_PREFERENCES_STUDENT_LOUD_IMPORTANCE, student.loud.second);
+
+                editor.putBoolean(SHARED_PREFERENCES_STUDENT_WAKE_EARLY, student.wakeEarly.first);
+
+                editor.putBoolean(SHARED_PREFERENCES_STUDENT_SLEEP_EARLY, student.sleepEarly.first);
+
+                editor.putInt(SHARED_PREFERENCES_STUDENT_SLEEP_IMPORTANCE, student.sleepEarly.second);
+
                 /*editor.putStringSet(SHARED_PREFERENCES_STUDENT_HABITS, new HashSet<>(student.habits));
                 editor.putStringSet(SHARED_PREFERENCES_STUDENT_PREFERENCES, new HashSet<>(student.preferences));*/
                 editor.putBoolean(SHARED_PREFERENCES_HAS_REGISTERED, true);
