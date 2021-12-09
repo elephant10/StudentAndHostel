@@ -1,22 +1,22 @@
 <resources>
     <string name="app_name">Studigo</string>
-    <string name="registrationOfUsertext"><u>Реєстрація користувача</u></string>
+    <string name="registrationOfUsertext">РЕЄСТРАЦІЯ</string>
     <string name="importanceToast"><font size = "18">"Що більша важливість параметру, то сильніше ми будемо брати його до уваги при пошуку кімнат для вас
         \n Вводіть дані чесно, оскільки те, що не важливо вам, може бути важливо іншим"</font></string>
     <string-array name="religions">
         <item> Православна</item>
-        <item> <font size = "18">Католицька</font></item>
-        <item> <font size = "18">Греко-католицька</font></item>
-        <item> <font size = "18">інша християнська</font></item>
-        <item> <font size = "18">Іудейська</font></item>
-        <item> <font size = "18">Суннізм</font></item>
-        <item> <font size = "18">Шиїзм</font></item>
-        <item> <font size = "18">Інша мусульманська</font></item>
-        <item> <font size = "18">Буддизм</font></item>
-        <item> <font size = "18">Синтоїзм</font></item>
-        <item> <font size = "18">Аттеїзм (відсутність віри)</font></item>
-        <item> <font size = "18">Агностицизм</font></item>
-        <item> <font size = "18">Не бажаю вказувати</font></item>
+        <item> <font size = "14">Католицька</font></item>
+        <item> <font size = "14">Греко-католицька</font></item>
+        <item> <font size = "14">інша християнська</font></item>
+        <item> <font size = "14">Іудейська</font></item>
+        <item> <font size = "14">Суннізм</font></item>
+        <item> <font size = "14">Шиїзм</font></item>
+        <item> <font size = "14">Інша мусульманська</font></item>
+        <item> <font size = "14">Буддизм</font></item>
+        <item> <font size = "14">Синтоїзм</font></item>
+        <item> <font size = "14">Аттеїзм (відсутність віри)</font></item>
+        <item> <font size = "14">Агностицизм</font></item>
+        <item> <font size = "14" >Не бажаю вказувати</font></item>
     </string-array>
 
 </resources>

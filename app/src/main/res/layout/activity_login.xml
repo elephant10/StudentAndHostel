@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundBlue"
     tools:context=".LoginActivity">
 
     <TextView
         android:id="@+id/descriptionView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/arial_black"
         android:gravity="center"
         android:text="@string/registrationOfUsertext"
-        android:textSize="40sp"
+        android:textColor="@color/TitleBlue"
+        android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,6 +28,8 @@
         android:id="@+id/registrationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/TitleBlue"
+        android:fontFamily="@font/arial_black"
         android:text="Реєстрація"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,8 +40,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingStart="10dp"
         android:paddingTop="10dp"
-        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
         app:layout_constraintBottom_toTopOf="@+id/registrationButton"
         app:layout_constraintTop_toBottomOf="@+id/descriptionView"
         app:layout_constraintVertical_bias="1.0"
@@ -51,88 +57,170 @@
                 android:id="@+id/registrationQuestionairyView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/TitleBlue"
+                android:textSize="24sp"
+                android:fontFamily="@font/arial_black"
                 android:gravity="center"
                 android:text="базова інформація"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                 />
 
             <EditText
                 android:id="@+id/nameView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/calibri"
                 android:gravity="center"
                 android:hint="введіть ім'я"
                 android:paddingTop="20dp"
-                android:text="" />
+                android:text=""
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/surnameView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/calibri"
                 android:gravity="center"
                 android:hint="введіть прізвище"
-                android:text="" />
+                android:text=""
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/yourSexView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="15dp"
+                android:text="Ваша стать:"
+                android:textColor="@color/TitleBlue"
+                android:textSize="18sp"
+                android:fontFamily="@font/arial_black"/>
 
             <RadioGroup
                 android:id="@+id/sexGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:orientation="horizontal"
-                android:paddingTop="20dp">
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/yourSexView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingRight="20dp"
-                    android:text="Ваша стать:"
-                    android:textSize="20sp" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="4" />
 
                 <RadioButton
                     android:id="@+id/radioMale"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="чоловік" />
+                    android:alpha="0.5"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:background="@drawable/male"
+                    android:button="@null"
+                    android:onClick="opacityChange" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="2" />
 
                 <RadioButton
                     android:id="@+id/radioFemale"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="жінка" />
+                    android:alpha="0.5"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:background="@drawable/female"
+                    android:button="@null"
+                    android:onClick="opacityChange" />
 
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="4" />
             </RadioGroup>
 
-            <EditText
-                android:id="@+id/editTextPhone"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:hint="введіть номер телефона"
-                android:inputType="phone"
-                android:paddingTop="20dp" />
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
 
-            <EditText
-                android:id="@+id/editTextEmail"
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/phone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/calibri"
+                    android:text="номер телефону"
+                    android:textSize="18sp"
+                    android:paddingLeft="10dp"/>
+
+                <EditText
+                    android:id="@+id/editTextPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:fontFamily="@font/calibri"
+                    android:gravity="center"
+                    android:inputType="phone"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:hint="введіть пошту"
-                android:inputType="textEmailAddress"
-                android:paddingTop="20dp" />
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/mail" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/calibri"
+                    android:text="електронна пошта"
+                    android:paddingStart="10dp"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/editTextEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:fontFamily="@font/calibri"
+                    android:textSize="18sp"
+                    android:gravity="center"
+
+                    android:inputType="textEmailAddress" />
+
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/identityView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/arial_black"
                 android:gravity="center"
-                android:paddingTop="40dp"
+                android:paddingTop="30dp"
                 android:text="Ваша ідентифікація"
-                android:textSize="30sp" />
+                android:textColor="@color/TitleBlue"
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -149,11 +237,12 @@
                     <TextView
                         android:id="@+id/yourReligionView"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:text="Ваша віра:"
-                        android:textSize="20sp" />
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp" />
 
                     <Spinner
                         android:id="@+id/religionSpinner"
@@ -162,6 +251,7 @@
                         android:layout_weight="2"
                         android:entries="@array/religions"
                         android:gravity="center"
+
                         android:spinnerMode="dropdown"
                         android:textAlignment="center" />
 
@@ -177,7 +267,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center"
+                        android:gravity="left"
+                        android:fontFamily="@font/calibri"
+                        android:textSize="16sp"
                         android:onClick="onImportanceClick"
                         android:text="важливість" />
 
@@ -186,6 +278,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:inputType="numberSigned"
+                        android:fontFamily="@font/calibri"
                         android:text="0%" />
 
                     <SeekBar
@@ -193,7 +286,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="10"
+                        android:thumbTint="@color/lineGreen"
+                        android:progressTint="@color/lineGreen"
                         android:max="100"
+
                         android:min="0"
                         android:progress="50" />
 
@@ -201,7 +297,9 @@
                         android:id="@+id/maxReligionImportanceNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="100%" />
+                        android:text="100%"
+                        android:fontFamily="@font/calibri"
+                        />
                 </LinearLayout>
 
             </LinearLayout>
@@ -220,11 +318,12 @@
                     <TextView
                         android:id="@+id/yourCountryView"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:text="Країна:"
-                        android:textSize="20sp" />
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp" />
 
                     <EditText
                         android:id="@+id/countryEditText"
@@ -234,7 +333,8 @@
                         android:gravity="center"
                         android:inputType="textPersonName"
                         android:text="Україна"
-                        android:textSize="20sp" />
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -248,9 +348,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:gravity="left"
+                        android:fontFamily="@font/calibri"
+                        android:textSize="16sp"
                         android:onClick="onImportanceClick"
-
-                        android:gravity="center"
                         android:text="важливість" />
 
                     <TextView
@@ -258,6 +359,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:inputType="numberSigned"
+                        android:fontFamily="@font/calibri"
                         android:text="0%" />
 
                     <SeekBar
@@ -266,6 +368,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="10"
                         android:max="100"
+                        android:thumbTint="@color/lineGreen"
+                        android:progressTint="@color/lineGreen"
                         android:min="0"
                         android:progress="50" />
 
@@ -273,7 +377,8 @@
                         android:id="@+id/maxCountryImportanceNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="100%" />
+                        android:text="100%"
+                        android:fontFamily="@font/calibri"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -292,11 +397,12 @@
                     <TextView
                         android:id="@+id/yourRegionView"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:text="Область:"
-                        android:textSize="20sp" />
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp" />
 
                     <EditText
                         android:id="@+id/regionEditText"
@@ -304,10 +410,12 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
+
                         android:hint="введіть область"
                         android:inputType="textPersonName"
                         android:text=""
-                        android:textSize="20sp" />
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp"/>
 
                 </LinearLayout>
 
@@ -321,7 +429,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center"
+                        android:gravity="left"
+                        android:fontFamily="@font/calibri"
+                        android:textSize="16sp"
                         android:onClick="onImportanceClick"
 
                         android:text="важливість" />
@@ -331,7 +441,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:inputType="numberSigned"
-                        android:text="0%" />
+                        android:text="0%"
+                        android:fontFamily="@font/calibri"/>
 
                     <SeekBar
                         android:id="@+id/seekBarRegion"
@@ -340,13 +451,16 @@
                         android:layout_weight="10"
                         android:max="100"
                         android:min="0"
+                        android:thumbTint="@color/lineGreen"
+                        android:progressTint="@color/lineGreen"
                         android:progress="50" />
 
                     <TextView
                         android:id="@+id/maxRegionImportanceNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="100%" />
+                        android:text="100%"
+                        android:fontFamily="@font/calibri"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -365,11 +479,12 @@
                     <TextView
                         android:id="@+id/yourTownView"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="Місто(село):"
-                        android:textSize="20sp" />
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp" />
 
                     <EditText
                         android:id="@+id/townEditText"
@@ -380,7 +495,8 @@
                         android:hint="введіть місто(село)"
                         android:inputType="textPersonName"
                         android:text=""
-                        android:textSize="20sp" />
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -394,7 +510,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center"
+                        android:gravity="left"
+                        android:fontFamily="@font/calibri"
+                        android:textSize="16sp"
                         android:onClick="onImportanceClick"
 
                         android:text="важливість" />
@@ -404,7 +522,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:inputType="numberSigned"
-                        android:text="0%" />
+                        android:text="0%"
+                        android:fontFamily="@font/calibri"/>
 
                     <SeekBar
                         android:id="@+id/seekBarTown"
@@ -413,13 +532,16 @@
                         android:layout_weight="10"
                         android:max="100"
                         android:min="0"
+                        android:thumbTint="@color/lineGreen"
+                        android:progressTint="@color/lineGreen"
                         android:progress="50" />
 
                     <TextView
                         android:id="@+id/maxTownImportanceNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="100%" />
+                        android:text="100%"
+                        android:fontFamily="@font/calibri"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -438,22 +560,24 @@
                     <TextView
                         android:id="@+id/yourEthicView"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Етнічнна \n група"
-                        android:textSize="20sp" />
+                        android:text="Етнічнна група"
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp" />
 
                     <EditText
                         android:id="@+id/ethnicEditText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:hint="напр., українці/кримські тотари"
                         android:inputType="textPersonName"
                         android:text=""
-                        android:textSize="20sp" />
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -467,7 +591,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center"
+                        android:gravity="left"
+                        android:fontFamily="@font/calibri"
+                        android:textSize="16sp"
                         android:onClick="onImportanceClick"
 
                         android:text="важливість" />
@@ -477,7 +603,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:inputType="numberSigned"
-                        android:text="0%" />
+                        android:text="0%"
+                        android:fontFamily="@font/calibri"/>
 
                     <SeekBar
                         android:id="@+id/seekBarEthnic"
@@ -486,13 +613,16 @@
                         android:layout_weight="10"
                         android:max="100"
                         android:min="0"
+                        android:thumbTint="@color/lineGreen"
+                        android:progressTint="@color/lineGreen"
                         android:progress="50" />
 
                     <TextView
                         android:id="@+id/maxEthnicImportanceNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="100%" />
+                        android:text="100%"
+                        android:fontFamily="@font/calibri"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -511,11 +641,12 @@
                     <TextView
                         android:id="@+id/yourLanguageView"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:text="Мова"
-                        android:textSize="20sp" />
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp" />
 
                     <EditText
                         android:id="@+id/languageEditText"
@@ -525,7 +656,8 @@
                         android:gravity="center"
                         android:inputType="textPersonName"
                         android:text="українська"
-                        android:textSize="20sp" />
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -539,7 +671,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center"
+                        android:gravity="left"
+                        android:fontFamily="@font/calibri"
+                        android:textSize="16sp"
                         android:onClick="onImportanceClick"
 
                         android:text="важливість" />
@@ -549,7 +683,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:inputType="numberSigned"
-                        android:text="0%" />
+                        android:text="0%"
+                        android:fontFamily="@font/calibri"/>
 
                     <SeekBar
                         android:id="@+id/seekBarLanguage"
@@ -558,13 +693,16 @@
                         android:layout_weight="10"
                         android:max="100"
                         android:min="0"
+                        android:thumbTint="@color/lineGreen"
+                        android:progressTint="@color/lineGreen"
                         android:progress="50" />
 
                     <TextView
                         android:id="@+id/maxLanguagemportanceNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="100%" />
+                        android:text="100%"
+                        android:fontFamily="@font/calibri"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -573,10 +711,12 @@
                 android:id="@+id/lifestyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/arial_black"
                 android:gravity="center"
-                android:paddingTop="40dp"
+                android:paddingTop="30dp"
                 android:text="Ваш стиль життя"
-                android:textSize="30sp" />
+                android:textColor="@color/TitleBlue"
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -601,14 +741,17 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1" />
+
                     <CheckBox
                         android:id="@+id/alcoholBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:gravity="left"
-                        android:textSize="20sp"
-                        android:text="споживаю алкогольні напої" />
+                        android:buttonTint="@color/lineGreen"
+                        android:text="споживаю алкогольні напої"
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -622,7 +765,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center"
+                        android:gravity="left"
+                        android:fontFamily="@font/calibri"
+                        android:textSize="16sp"
                         android:onClick="onImportanceClick"
 
                         android:text="важливість" />
@@ -632,7 +777,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:inputType="numberSigned"
-                        android:text="0%" />
+                        android:text="0%"
+                        android:fontFamily="@font/calibri"/>
 
                     <SeekBar
                         android:id="@+id/seekBarAlcohol"
@@ -641,13 +787,16 @@
                         android:layout_weight="10"
                         android:max="100"
                         android:min="0"
+                        android:thumbTint="@color/lineGreen"
+                        android:progressTint="@color/lineGreen"
                         android:progress="50" />
 
                     <TextView
                         android:id="@+id/maxAlcoholImportanceNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="100%" />
+                        android:text="100%"
+                        android:fontFamily="@font/calibri"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -675,14 +824,17 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1" />
+
                     <CheckBox
                         android:id="@+id/burnBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:gravity="left"
-                        android:textSize="20sp"
-                        android:text="Курю" />
+                        android:buttonTint="@color/lineGreen"
+                        android:text="Курю"
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -696,7 +848,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center"
+                        android:gravity="left"
+                        android:fontFamily="@font/calibri"
+                        android:textSize="16sp"
                         android:onClick="onImportanceClick"
 
                         android:text="важливість" />
@@ -706,7 +860,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:inputType="numberSigned"
-                        android:text="0%" />
+                        android:text="0%"
+                        android:fontFamily="@font/calibri"/>
 
                     <SeekBar
                         android:id="@+id/seekBarBurn"
@@ -715,13 +870,16 @@
                         android:layout_weight="10"
                         android:max="100"
                         android:min="0"
+                        android:thumbTint="@color/lineGreen"
+                        android:progressTint="@color/lineGreen"
                         android:progress="50" />
 
                     <TextView
                         android:id="@+id/maxBurnImportanceNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="100%" />
+                        android:text="100%"
+                        android:fontFamily="@font/calibri"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -749,14 +907,17 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1" />
+
                     <CheckBox
                         android:id="@+id/loudBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:gravity="left"
-                        android:textSize="20sp"
-                        android:text="гучно слухаю музику" />
+                        android:buttonTint="@color/lineGreen"
+                        android:text="гучно слухаю музику"
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -770,7 +931,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center"
+                        android:gravity="left"
+                        android:fontFamily="@font/calibri"
+                        android:textSize="16sp"
                         android:onClick="onImportanceClick"
 
                         android:text="важливість" />
@@ -780,7 +943,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:inputType="numberSigned"
-                        android:text="0%" />
+                        android:text="0%"
+                        android:fontFamily="@font/calibri"/>
 
                     <SeekBar
                         android:id="@+id/seekBarLoud"
@@ -789,13 +953,16 @@
                         android:layout_weight="10"
                         android:max="100"
                         android:min="0"
+                        android:thumbTint="@color/lineGreen"
+                        android:progressTint="@color/lineGreen"
                         android:progress="50" />
 
                     <TextView
                         android:id="@+id/maxLoudImportanceNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="100%" />
+                        android:text="100%"
+                        android:fontFamily="@font/calibri"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -818,7 +985,8 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="Режим сну"
-                        android:textSize="20sp" />
+                        android:fontFamily="@font/calibri"
+                        android:textSize="18sp" />
 
                     <TableLayout
 
@@ -843,7 +1011,8 @@
                                 android:layout_weight="2"
                                 android:gravity="center"
                                 android:text="рано"
-                                android:textSize="20sp" />
+                                android:fontFamily="@font/calibri"
+                                android:textSize="18sp" />
 
                             <TextView
                                 android:layout_width="0dp"
@@ -851,7 +1020,8 @@
                                 android:layout_weight="2"
                                 android:gravity="center"
                                 android:text="пізно"
-                                android:textSize="20sp" />
+                                android:fontFamily="@font/calibri"
+                                android:textSize="18sp"/>
                         </TableRow>
 
                         <TableRow
@@ -865,36 +1035,45 @@
 
                                 android:gravity="center"
                                 android:text=" просинаюсь"
-                                android:textSize="20sp" />
+                                android:fontFamily="@font/calibri"
+                                android:textSize="18sp" />
 
                             <RadioGroup
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="4"
+
                                 android:orientation="horizontal">
 
                                 <View
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
                                     android:layout_weight="1" />
+
                                 <RadioButton
                                     android:id="@+id/wakeEarlyRadio"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_weight="1"
+                                    android:buttonTint="@color/lineGreen"
                                     android:gravity="center" />
+
                                 <View
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
                                     android:layout_weight="1" />
+
                                 <RadioButton
                                     android:id="@+id/wakeLateRadio"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_weight="1"
+                                    android:buttonTint="@color/lineGreen"
+
                                     android:gravity="center" />
+
                                 <View
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
@@ -913,14 +1092,14 @@
 
                                 android:gravity="center"
                                 android:text=" засинаю"
-                                android:textSize="20sp" />
+                                android:fontFamily="@font/calibri"
+                                android:textSize="18sp" />
 
                             <RadioGroup
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="4"
-                                android:orientation="horizontal"
-                                >
+                                android:orientation="horizontal">
 
                                 <View
                                     android:layout_width="0dip"
@@ -933,6 +1112,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_weight="1"
+                                    android:buttonTint="@color/lineGreen"
+
                                     android:gravity="center" />
 
                                 <View
@@ -946,6 +1127,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_weight="1"
+                                    android:buttonTint="@color/lineGreen"
+
                                     android:gravity="center" />
 
                                 <View
@@ -970,7 +1153,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:gravity="center"
+                        android:gravity="left"
+                        android:fontFamily="@font/calibri"
+                        android:textSize="16sp"
                         android:onClick="onImportanceClick"
 
                         android:text="важливість" />
@@ -980,7 +1165,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:inputType="numberSigned"
-                        android:text="0%" />
+                        android:text="0%"
+                        android:fontFamily="@font/calibri"/>
 
                     <SeekBar
                         android:id="@+id/seekBarSleep"
@@ -989,13 +1175,16 @@
                         android:layout_weight="10"
                         android:max="100"
                         android:min="0"
+                        android:thumbTint="@color/lineGreen"
+                        android:progressTint="@color/lineGreen"
                         android:progress="50" />
 
                     <TextView
                         android:id="@+id/maxSleepImportanceNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="100%" />
+                        android:text="100%"
+                        android:fontFamily="@font/calibri"/>
                 </LinearLayout>
 
             </LinearLayout>

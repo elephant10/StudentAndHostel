@@ -83,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide();
         sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_THIS_STUDENT, MODE_PRIVATE);
         hasRegistered = sharedPreferences.getBoolean(SHARED_PREFERENCES_HAS_REGISTERED, false);
 
@@ -142,7 +143,7 @@ public class LoginActivity extends AppCompatActivity {
             boolean sex = sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_SEX, true);
             String phone = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_PHONE, "");
             String email = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_EMAIL, "");
-            ;
+
             Pair<String, Integer> religion = new Pair<>(
                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_RELIGION, ""),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_RELIGION_IMPORTANCE, 50));
@@ -198,7 +199,9 @@ public class LoginActivity extends AppCompatActivity {
             nameview.setText(name);
             if (sex) {
                 maleRadio.toggle();
+                maleRadio.setAlpha(1);
             } else {
+                maleRadio.setAlpha(1);
                 femaleRadio.toggle();
             }
             editTextPhone.setText(phone);
@@ -230,7 +233,7 @@ public class LoginActivity extends AppCompatActivity {
                 sleepLateRadio.toggle();
             }
             descriptionView = findViewById(R.id.descriptionView);
-            descriptionView.setText("Зміна інформації про Вас");
+            descriptionView.setText("Редагування");
             registrationButton.setText("Підтвердити зміни");
         }
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -428,5 +431,15 @@ public class LoginActivity extends AppCompatActivity {
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+
+    public void opacityChange(View view) {
+        if (view == maleRadio){
+            maleRadio.animate().alpha(1).setDuration(100).start();
+            femaleRadio.animate().alpha(0.5f).setDuration(100).start();
+        } else{
+            femaleRadio.animate().alpha(1).setDuration(100).start();
+            maleRadio.animate().alpha(0.5f).setDuration(100).start();
+        }
     }
 }

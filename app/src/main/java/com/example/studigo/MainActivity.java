@@ -61,7 +61,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        deleteSharedPreferences(SHARED_PREFERENCES_THIS_STUDENT);
+
+        getSupportActionBar().hide();
+
+        //  deleteSharedPreferences(SHARED_PREFERENCES_THIS_STUDENT);
 
         database = FirebaseDatabase.getInstance();
         studentRef = database.getReference(STUDENTS_REFERENCE_KEY);
