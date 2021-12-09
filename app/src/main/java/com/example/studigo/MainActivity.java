@@ -15,6 +15,7 @@ import static com.example.studigo.Constatns.maxRoomID;
 import static com.example.studigo.Constatns.maxStudentID;
 import static com.example.studigo.Constatns.studentRef;
 import static com.example.studigo.Constatns.roomRef;
+import static com.example.studigo.Constatns.updateHappened;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -51,16 +52,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        pleaseTextView.setText(deviceStudent.name + " " + deviceStudent.surname);
-
+        if(deviceStudent != null) {
+            pleaseTextView.setText(deviceStudent.name + " " + deviceStudent.surname);
+        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        deleteSharedPreferences(SHARED_PREFERENCES_THIS_STUDENT);
+
         database = FirebaseDatabase.getInstance();
         studentRef = database.getReference(STUDENTS_REFERENCE_KEY);
+
         roomRef = database.getReference(ROOM_REFERENCE_KEY);
         init();
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_THIS_STUDENT, MODE_PRIVATE);
@@ -108,8 +113,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Integer t = snapshot.getValue(Integer.class);
-                if (t != null)
+                if (t != null) {
                     Constatns.maxRoomID = t;
+                    updateHappened = true;
+                }
                 System.out.println("maxRoomID = " + maxRoomID);
             }
 

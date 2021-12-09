@@ -1,6 +1,9 @@
 package com.example.studigo;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -18,6 +21,7 @@ public class Constatns {
     public static Student deviceStudent;
     public static int maxRoomID;
     public static int maxStudentID;
+    public static boolean updateHappened = false; //maxId of students and rooms from server
     public static DatabaseReference studentRef;
     public static DatabaseReference roomRef;
     //public static SharedPreferences sharedPreferences;
@@ -69,5 +73,6 @@ public class Constatns {
    /* public static final String SHARED_PREFERENCES_STUDENT_HABITS = "STUDENT_HABITS";
     public static final String SHARED_PREFERENCES_STUDENT_PREFERENCES = "STUDENT_PREFERENCES";
 */
+
 
 }

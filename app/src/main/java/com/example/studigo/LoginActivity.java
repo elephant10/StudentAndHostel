@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
@@ -227,17 +229,36 @@ public class LoginActivity extends AppCompatActivity {
             } else {
                 sleepLateRadio.toggle();
             }
-
+            descriptionView = findViewById(R.id.descriptionView);
+            descriptionView.setText("Зміна інформації про Вас");
+            registrationButton.setText("Підтвердити зміни");
         }
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
-        descriptionView = findViewById(R.id.descriptionView);
-        descriptionView.setText("Зміна інформації про Вас");
-        registrationButton.setText("Підтвердити зміни");
     }
 
     @Override
     public void onBackPressed() {
+        if (!isOnline()){
+            Toast.makeText(this,"нема доступу до інтернету", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!updateHappened){
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(()->{
+                        onBackPressed();
+                    });
+                }
+            }).start();
+            return;
+        }
         if (nameview.getText().toString().equals("") || surnameview.getText().toString().equals("")
                 || (!maleRadio.isChecked() && !femaleRadio.isChecked()) || editTextPhone.getText().toString().equals("")
                 || editTextEmail.getText().toString().equals("")) {
@@ -250,7 +271,26 @@ public class LoginActivity extends AppCompatActivity {
     View.OnClickListener registrationListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-
+            if (!isOnline()){
+                Toast.makeText(LoginActivity.this,"нема доступу до інтернету", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (!updateHappened){
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        runOnUiThread(()->{
+                            onClick(view);
+                        });
+                    }
+                }).start();
+                return;
+            }
             if (!nameview.getText().toString().equals("") && !surnameview.getText().toString().equals("")
                     && (maleRadio.isChecked() || femaleRadio.isChecked()) && !editTextPhone.getText().toString().equals("")
                     && !editTextEmail.getText().toString().equals("")) {
@@ -381,5 +421,12 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onImportanceClick(View view) {
         Toast.makeText(this, R.string.importanceToast, Toast.LENGTH_LONG).show();
+    }
+
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 }
