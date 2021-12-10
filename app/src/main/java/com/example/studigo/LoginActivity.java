@@ -201,7 +201,7 @@ public class LoginActivity extends AppCompatActivity {
                 maleRadio.toggle();
                 maleRadio.setAlpha(1);
             } else {
-                maleRadio.setAlpha(1);
+                femaleRadio.setAlpha(1);
                 femaleRadio.toggle();
             }
             editTextPhone.setText(phone);
@@ -242,7 +242,8 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (!isOnline()){
+        registrationButton.callOnClick();
+        /*if (!isOnline()){
             Toast.makeText(this,"нема доступу до інтернету", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -268,7 +269,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "заповніть базову інформацію", Toast.LENGTH_SHORT).show();
         } else {
             super.onBackPressed();
-        }
+        }*/
     }
 
     View.OnClickListener registrationListener = new View.OnClickListener() {
@@ -403,7 +404,7 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(LoginActivity.this, "користувача додано", Toast.LENGTH_SHORT).show();
                 }
-                onBackPressed();
+                LoginActivity.super.onBackPressed();
             } else {
                 Toast.makeText(LoginActivity.this, "заповніть базову інформацію", Toast.LENGTH_SHORT).show();
                 vibrator.vibrate(new long[]{50, 200, 50, 400}, 0);

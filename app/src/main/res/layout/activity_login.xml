@@ -70,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/calibri"
                 android:gravity="center"
+                android:backgroundTint="@color/black"
                 android:hint="введіть ім'я"
                 android:paddingTop="20dp"
                 android:text=""
@@ -81,6 +82,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/calibri"
                 android:gravity="center"
+                android:backgroundTint="@color/black"
+
                 android:hint="введіть прізвище"
                 android:text=""
                 android:textSize="18sp" />
@@ -167,6 +170,8 @@
                     android:id="@+id/editTextPhone"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black"
+
                     android:layout_weight="4"
                     android:fontFamily="@font/calibri"
                     android:gravity="center"
@@ -200,6 +205,8 @@
                 <EditText
                     android:id="@+id/editTextEmail"
                     android:layout_width="0dp"
+                    android:backgroundTint="@color/black"
+
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
                     android:fontFamily="@font/calibri"
@@ -330,6 +337,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:backgroundTint="@color/black"
+
                         android:gravity="center"
                         android:inputType="textPersonName"
                         android:text="Україна"
@@ -410,6 +419,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
+                        android:backgroundTint="@color/black"
 
                         android:hint="введіть область"
                         android:inputType="textPersonName"
@@ -481,7 +491,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:text="Місто(село):"
                         android:fontFamily="@font/calibri"
                         android:textSize="18sp" />
@@ -491,6 +501,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:backgroundTint="@color/black"
+
                         android:gravity="center"
                         android:hint="введіть місто(село)"
                         android:inputType="textPersonName"
@@ -562,7 +574,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:text="Етнічнна група"
                         android:fontFamily="@font/calibri"
                         android:textSize="18sp" />
@@ -573,6 +585,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="left"
+                        android:backgroundTint="@color/black"
+
                         android:hint="напр., українці/кримські тотари"
                         android:inputType="textPersonName"
                         android:text=""
@@ -653,6 +667,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:backgroundTint="@color/black"
+
                         android:gravity="center"
                         android:inputType="textPersonName"
                         android:text="українська"
@@ -983,7 +999,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:gravity="center_vertical|center_horizontal"
                         android:text="Режим сну"
                         android:fontFamily="@font/calibri"
                         android:textSize="18sp" />
@@ -1012,7 +1028,7 @@
                                 android:gravity="center"
                                 android:text="рано"
                                 android:fontFamily="@font/calibri"
-                                android:textSize="18sp" />
+                                android:textSize="17sp" />
 
                             <TextView
                                 android:layout_width="0dp"
@@ -1021,7 +1037,7 @@
                                 android:gravity="center"
                                 android:text="пізно"
                                 android:fontFamily="@font/calibri"
-                                android:textSize="18sp"/>
+                                android:textSize="17sp"/>
                         </TableRow>
 
                         <TableRow
@@ -1036,7 +1052,7 @@
                                 android:gravity="center"
                                 android:text=" просинаюсь"
                                 android:fontFamily="@font/calibri"
-                                android:textSize="18sp" />
+                                android:textSize="17sp" />
 
                             <RadioGroup
                                 android:layout_width="0dp"
@@ -1093,7 +1109,7 @@
                                 android:gravity="center"
                                 android:text=" засинаю"
                                 android:fontFamily="@font/calibri"
-                                android:textSize="18sp" />
+                                android:textSize="17sp" />
 
                             <RadioGroup
                                 android:layout_width="0dp"
