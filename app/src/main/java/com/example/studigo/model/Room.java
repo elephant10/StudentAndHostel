@@ -8,11 +8,12 @@ import com.example.studigo.Constatns;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Room {
+public class Room implements Serializable {
 
     public int hostel;
     public int stage;
