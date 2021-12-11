@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Vibrator;
 
+import com.example.studigo.model.MyPair;
 import com.example.studigo.model.Student;
 
 import java.util.ArrayList;
@@ -144,37 +145,37 @@ public class LoginActivity extends AppCompatActivity {
             String phone = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_PHONE, "");
             String email = sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_EMAIL, "");
 
-            Pair<String, Integer> religion = new Pair<>(
+            MyPair<String, Integer> religion = new MyPair<>(
                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_RELIGION, ""),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_RELIGION_IMPORTANCE, 50));
-            Pair<String, Integer> country = new Pair<>(
+            MyPair<String, Integer> country = new MyPair<>(
                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_COUNTRY, "Ukraine"),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_COUNTRY_IMPORTANCE, 50));
-            Pair<String, Integer> region = new Pair<>(
+            MyPair<String, Integer> region = new MyPair<>(
                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_REGION, ""),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_REGION_IMPORTANCE, 50));
-            Pair<String, Integer> town = new Pair<>(
+            MyPair<String, Integer> town = new MyPair<>(
                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_TOWN, ""),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_TOWN_IMPORTANCE, 50));
-            Pair<String, Integer> ethnic = new Pair<>(
+            MyPair<String, Integer> ethnic = new MyPair<>(
                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_ETHNIC, ""),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_ETHNIC_IMPORTANCE, 50));
-            Pair<String, Integer> language = new Pair<>(
+            MyPair<String, Integer> language = new MyPair<>(
                     sharedPreferences.getString(SHARED_PREFERENCES_STUDENT_LANGUAGE, ""),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_LANGUAGE_IMPORTANCE, 50));
-            Pair<Boolean, Integer> alcohol = new Pair<>(
+            MyPair<Boolean, Integer> alcohol = new MyPair<>(
                     sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_ALCOHOL, false),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_ALCOHOL_IMPORTANCE, 50));
-            Pair<Boolean, Integer> burn = new Pair<>(
+            MyPair<Boolean, Integer> burn = new MyPair<>(
                     sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_BURN, false),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_BURN_IMPORTANCE, 50));
-            Pair<Boolean, Integer> loud = new Pair<>(
+            MyPair<Boolean, Integer> loud = new MyPair<>(
                     sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_LOUD, false),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_LOUD_IMPORTANCE, 50));
-            Pair<Boolean, Integer> wakeEarly = new Pair<>(
+            MyPair<Boolean, Integer> wakeEarly = new MyPair<>(
                     sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_WAKE_EARLY, false),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_SLEEP_IMPORTANCE, 50));
-            Pair<Boolean, Integer> sleepEarly = new Pair<>(
+            MyPair<Boolean, Integer> sleepEarly = new MyPair<>(
                     sharedPreferences.getBoolean(SHARED_PREFERENCES_STUDENT_SLEEP_EARLY, false),
                     sharedPreferences.getInt(SHARED_PREFERENCES_STUDENT_SLEEP_IMPORTANCE, 50));
 //            ArrayList<String> habits = new ArrayList<>(sharedPreferences.getStringSet(SHARED_PREFERENCES_STUDENT_HABITS, new ArraySet<>()));
@@ -307,18 +308,18 @@ public class LoginActivity extends AppCompatActivity {
                     {
                         student.phone = editTextPhone.getText().toString();
                         student.email = editTextEmail.getText().toString();
-                        student.religion = new Pair<>(religionSpinner.getSelectedItem().toString(), seekBarReligion.getProgress());
+                        student.religion = new MyPair<>(religionSpinner.getSelectedItem().toString(), seekBarReligion.getProgress());
 
-                        student.country = new Pair<>(countryEditText.getText().toString(), seekBarCountry.getProgress());
-                        student.region = new Pair<>(regionEditText.getText().toString(), seekBarRegion.getProgress());
-                        student.town = new Pair<>(townEditText.getText().toString(), seekBarTown.getProgress());
-                        student.ethnic = new Pair<>(ethnicEditText.getText().toString(), seekBarEthnic.getProgress());
-                        student.language = new Pair<>(languageEditText.getText().toString(), seekBarLanguage.getProgress());
-                        student.alcohol = new Pair<>(alcoholBox.isChecked(), seekBarAlcohol.getProgress());
-                        student.burn = new Pair<>(burnBox.isChecked(), seekBarBurn.getProgress());
-                        student.loud = new Pair<>(loudBox.isChecked(), seekBarLoud.getProgress());
-                        student.sleepEarly = new Pair<>(sleepEarlyRadio.isChecked(), seekBarSleep.getProgress());
-                        student.wakeEarly = new Pair<>(wakeEarlyRadio.isChecked(), seekBarAlcohol.getProgress());
+                        student.country = new MyPair<>(countryEditText.getText().toString(), seekBarCountry.getProgress());
+                        student.region = new MyPair<>(regionEditText.getText().toString(), seekBarRegion.getProgress());
+                        student.town = new MyPair<>(townEditText.getText().toString(), seekBarTown.getProgress());
+                        student.ethnic = new MyPair<>(ethnicEditText.getText().toString(), seekBarEthnic.getProgress());
+                        student.language = new MyPair<>(languageEditText.getText().toString(), seekBarLanguage.getProgress());
+                        student.alcohol = new MyPair<>(alcoholBox.isChecked(), seekBarAlcohol.getProgress());
+                        student.burn = new MyPair<>(burnBox.isChecked(), seekBarBurn.getProgress());
+                        student.loud = new MyPair<>(loudBox.isChecked(), seekBarLoud.getProgress());
+                        student.sleepEarly = new MyPair<>(sleepEarlyRadio.isChecked(), seekBarSleep.getProgress());
+                        student.wakeEarly = new MyPair<>(wakeEarlyRadio.isChecked(), seekBarAlcohol.getProgress());
 
                     }
 
@@ -330,18 +331,18 @@ public class LoginActivity extends AppCompatActivity {
                     {
                         student.phone = editTextPhone.getText().toString();
                         student.email = editTextEmail.getText().toString();
-                        student.religion = new Pair<>(religionSpinner.getSelectedItem().toString(), seekBarReligion.getProgress());
+                        student.religion = new MyPair<>(religionSpinner.getSelectedItem().toString(), seekBarReligion.getProgress());
 
-                        student.country = new Pair<>(countryEditText.getText().toString(), seekBarCountry.getProgress());
-                        student.region = new Pair<>(regionEditText.getText().toString(), seekBarRegion.getProgress());
-                        student.town = new Pair<>(townEditText.getText().toString(), seekBarTown.getProgress());
-                        student.ethnic = new Pair<>(ethnicEditText.getText().toString(), seekBarEthnic.getProgress());
-                        student.language = new Pair<>(languageEditText.getText().toString(), seekBarLanguage.getProgress());
-                        student.alcohol = new Pair<>(alcoholBox.isChecked(), seekBarAlcohol.getProgress());
-                        student.burn = new Pair<>(burnBox.isChecked(), seekBarBurn.getProgress());
-                        student.loud = new Pair<>(loudBox.isChecked(), seekBarLoud.getProgress());
-                        student.sleepEarly = new Pair<>(sleepEarlyRadio.isChecked(), seekBarSleep.getProgress());
-                        student.wakeEarly = new Pair<>(wakeEarlyRadio.isChecked(), seekBarAlcohol.getProgress());
+                        student.country = new MyPair<>(countryEditText.getText().toString(), seekBarCountry.getProgress());
+                        student.region = new MyPair<>(regionEditText.getText().toString(), seekBarRegion.getProgress());
+                        student.town = new MyPair<>(townEditText.getText().toString(), seekBarTown.getProgress());
+                        student.ethnic = new MyPair<>(ethnicEditText.getText().toString(), seekBarEthnic.getProgress());
+                        student.language = new MyPair<>(languageEditText.getText().toString(), seekBarLanguage.getProgress());
+                        student.alcohol = new MyPair<>(alcoholBox.isChecked(), seekBarAlcohol.getProgress());
+                        student.burn = new MyPair<>(burnBox.isChecked(), seekBarBurn.getProgress());
+                        student.loud = new MyPair<>(loudBox.isChecked(), seekBarLoud.getProgress());
+                        student.sleepEarly = new MyPair<>(sleepEarlyRadio.isChecked(), seekBarSleep.getProgress());
+                        student.wakeEarly = new MyPair<>(wakeEarlyRadio.isChecked(), seekBarAlcohol.getProgress());
 
                     }
                     System.out.println("student = " + student);

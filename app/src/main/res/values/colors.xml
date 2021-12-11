@@ -10,4 +10,6 @@
     <color name="backgroundBlue">#99ccff</color>
     <color name="TitleBlue">#336699</color>
     <color name="lineGreen">#33ff00</color>
+    <color name="backgroundWhite">#33ffoo</color>
+    <color name="grey">#757575</color>
 </resources>

@@ -19,7 +19,7 @@ public class Room {
     public boolean roomSex;
     public String roomNumber;
     public int roomId;
-    int totalAmountOfBeds;
+    public int totalAmountOfBeds = 4;
     ArrayList<Integer> studentIds;
     double stateOfPerfection;
 
@@ -39,7 +39,7 @@ public class Room {
 
     }
 
-    public Room(int hostel, int stage, String roomNumber, int totalAmountOfBeds) {
+    public Room(int hostel, int stage, String roomNumber, int totalAmountOfBeds, boolean roomSex) {
         this.hostel = hostel;
         this.stage = stage;
         this.roomNumber = roomNumber;
@@ -49,15 +49,17 @@ public class Room {
         this.totalAmountOfBeds = totalAmountOfBeds;
         studentIds = new ArrayList<>();
         stateOfPerfection = 10;
+        this.roomSex = roomSex;
     }
 
-    public Room(int hostel, int stage, String roomNumber, int roomId, int totalAmountOfBeds) {
+    public Room(int hostel, int stage, String roomNumber, int roomId, int totalAmountOfBeds, boolean roomSex) {
         this.hostel = hostel;
         this.stage = stage;
         this.roomNumber = roomNumber;
         this.roomId = roomId;
         studentIds = new ArrayList<>();
         this.totalAmountOfBeds = totalAmountOfBeds;
+        this.roomSex = roomSex;
     }
 
     public String location() {
@@ -67,6 +69,7 @@ public class Room {
     @Override
     public String toString() {
         return "Room{" +
+                "\troomsex=" + roomSex + "\n" +
                 "\thostel=" + hostel + "\n" +
                 ",\t stage=" + stage + "\n" +
                 ",\t roomNumber='" + roomNumber + "\n" +
